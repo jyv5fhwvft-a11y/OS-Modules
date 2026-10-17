@@ -1,0 +1,166 @@
+@import "tailwindcss";
+
+:root {
+  --bg-page: #fafaf9;
+  --bg-surface: #ffffff;
+  --accent-primary: #1e40af;
+  --accent-primary-hover: #1d4ed8;
+  --accent-secondary: #0f766e;
+  --accent-secondary-bg: #ccfbf1;
+  --text-primary: #1c1917;
+  --text-muted: #57534e;
+  --border-color: #e7e5e4;
+  --border-focus: #3b82f6;
+  --callout-bg: #fef3c7;
+  --callout-border: #f59e0b;
+  --callout-text: #b45309;
+  --code-bg: #f5f5f4;
+  --code-border: #e7e5e4;
+  --chip-bg: #f5f5f4;
+  --chip-border: #d6d3d1;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-hover: 0 6px 16px -2px rgba(0, 0, 0, 0.08);
+  --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --syntax-keyword: #b91c1c;
+  --syntax-type: #0f766e;
+  --syntax-func: #1e40af;
+  --syntax-string: #15803d;
+  --syntax-comment: #78716c;
+  --syntax-number: #c2410c;
+}
+
+[data-theme="dark"] {
+  --bg-page: #0c0a09;
+  --bg-surface: #1c1917;
+  --accent-primary: #60a5fa;
+  --accent-primary-hover: #93c5fd;
+  --accent-secondary: #5eead4;
+  --accent-secondary-bg: #134e4a;
+  --text-primary: #fafaf9;
+  --text-muted: #a8a29e;
+  --border-color: #292524;
+  --border-focus: #60a5fa;
+  --callout-bg: #451a03;
+  --callout-border: #d97706;
+  --callout-text: #fde68a;
+  --code-bg: #141210;
+  --code-border: #292524;
+  --chip-bg: #292524;
+  --chip-border: #44403c;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-hover: 0 6px 16px -2px rgba(0, 0, 0, 0.6);
+  --syntax-keyword: #f87171;
+  --syntax-type: #2dd4bf;
+  --syntax-func: #93c5fd;
+  --syntax-string: #86efac;
+  --syntax-comment: #a8a29e;
+  --syntax-number: #fb923c;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg-page: #0c0a09;
+    --bg-surface: #1c1917;
+    --accent-primary: #60a5fa;
+    --accent-primary-hover: #93c5fd;
+    --accent-secondary: #5eead4;
+    --accent-secondary-bg: #134e4a;
+    --text-primary: #fafaf9;
+    --text-muted: #a8a29e;
+    --border-color: #292524;
+    --border-focus: #60a5fa;
+    --callout-bg: #451a03;
+    --callout-border: #d97706;
+    --callout-text: #fde68a;
+    --code-bg: #141210;
+    --code-border: #292524;
+    --chip-bg: #292524;
+    --chip-border: #44403c;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
+    --shadow-hover: 0 6px 16px -2px rgba(0, 0, 0, 0.6);
+    --syntax-keyword: #f87171;
+    --syntax-type: #2dd4bf;
+    --syntax-func: #93c5fd;
+    --syntax-string: #86efac;
+    --syntax-comment: #a8a29e;
+    --syntax-number: #fb923c;
+  }
+}
+
+body {
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  line-height: 1.5;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  min-height: 100vh;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--code-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* Syntax highlight color helpers */
+.c-kw { color: var(--syntax-keyword); font-weight: 600; }
+.c-typ { color: var(--syntax-type); font-weight: 600; }
+.c-fn { color: var(--syntax-func); }
+.c-str { color: var(--syntax-string); }
+.c-cmt { color: var(--syntax-comment); font-style: italic; }
+.c-num { color: var(--syntax-number); }
+
+/* Layout classes */
+.content-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 1024px) {
+  .content-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    align-items: start;
+    gap: 2.5rem;
+  }
+}
+
+.lectures-stream {
+  display: flex;
+  flex-direction: column;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Print styling */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-expand {
+    display: block !important;
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "CS-301: Operating Systems - Process Management",
+  "description": "Interactive courseware and simulation laboratory for CS-301 Module 2: Process Management, featuring PCB mechanics, scheduling algorithms, MLFQ, and concurrency models.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
